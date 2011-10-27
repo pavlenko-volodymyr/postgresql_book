@@ -1,3 +1,4 @@
+.DS_Store
 *.aux
 *.backup
 *.log
@@ -8,3 +9,4 @@
 *.tex~
 *.toc
 postgresql.pdf
+latex/postgresql.pdf
