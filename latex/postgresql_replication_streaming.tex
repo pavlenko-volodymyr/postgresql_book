@@ -148,6 +148,15 @@ rsync -C -a --delete -e ssh --exclude postgresql.conf --exclude postmaster.pid \
 psql -c "SELECT pg_stop_backup()"
 \end{lstlisting}
 
+Начиная с версии 9.1 в состав PostgreSQL входит утилита pg\_basebackup, которая выполняет ряд преведущих действий для клонирования 
+инстанса БД. Вот пример использования:
+\begin{lstlisting}[label=lst:streaming13,caption=Пример использования pg\_basebackup]
+$ pg_basebackup -D /tmp/newcluster -U replication -v
+ Password: 
+ NOTICE:  pg_stop_backup complete, all required WAL segments have been archived
+ pg_basebackup: base backup completed
+\end{lstlisting}
+
 Устанавливаем такие же данные в конфиге postgresql.conf, что и у мастера (чтобы при падении мастера слейв мог его заменить). 
 Так же установим допольнительный параметр:
 \begin{lstlisting}[label=lst:streaming13,caption=Конфиг слейва]
