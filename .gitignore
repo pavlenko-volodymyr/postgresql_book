@@ -10,3 +10,4 @@
 *.toc
 postgresql.pdf
 latex/postgresql.pdf
+latex/postgresql.synctex.gz
